@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Your Cart | Vish's Point</title>
+
+
+<style>
+
+body{
+font-family:Arial;
+padding:40px;
+text-align:center;
+background-image: url("https://www.creativefabrica.com/wp-content/uploads/2024/03/03/Abstract-blue-gradient-color-background-Graphics-92386638-1.jpg");
+
+
+}
+
+/* CART ITEMS */
+
+.cart-item{
+border:2px solid #000;
+padding:10px;
+margin:10px;
+border-radius:8px;
+background-color:rgb(255, 222, 228);
+}
+
+.total{
+font-size:22px;
+margin-top:20px;
+font-weight:bold;
+background-color: rgb(192, 255, 34);
+padding:10px;
+border-radius: 55px;
+color: #000;
+}
+
+/* BUTTON */
+
+button{
+padding:10px 20px;
+background:red;
+color:black;
+border:none;
+border-radius:6px;
+cursor:pointer;
+margin-top:15px;
+}
+h1{
+   color: #ff07ea;
+   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+/* BACK BUTTON */
+
+.back-home{
+text-align:center;
+margin:40px 0;
+}
+
+.home-btn{
+display:inline-block;
+padding:12px 25px;
+background:#ff6b6b;
+color:rgb(250, 247, 247);
+text-decoration:none;
+border-radius:6px;
+font-weight:600;
+transition:0.3s;
+}
+
+.home-btn:hover{
+background:#e63946;
+}
+
+/* BILL RECEIPT */
+
+.bill-box{
+width:400px;
+margin:40px auto;
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+text-align:left;
+}
+
+.bill-box h2{
+text-align:center;
+margin-bottom:10px;
+color: black
+;
+}
+
+.bill-info{
+font-size:14px;
+margin-bottom:10px;
+color: #000;
+}
+
+.bill-items{
+margin-top:15px;
+border-top:1px dashed #d1cece;
+padding-top:10px;
+color: #000;
+}
+
+.bill-row{
+display:flex;
+justify-content:space-between;
+margin:6px 0;
+color: #000;
+}
+
+.bill-total{
+border-top:2px solid #000;
+margin-top:10px;
+padding-top:10px;
+font-weight:bold;
+font-size:18px;
+display:flex;
+justify-content:space-between;
+color: #000;
+}
+
+.thank{
+text-align:center;
+margin-top:20px;
+font-style:italic;
+color:#444;
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+
+<h1>My Order</h1>
+
+<div id="cartItems"></div>
+
+<p class="total">Total: ₹<span id="totalPrice">0</span></p>
+
+<button onclick="clearCart()">Clear Cart</button>
+
+<!-- BILL RECEIPT -->
+
+<div class="bill-box" id="billBox">
+
+
+<h2>Order Bill Receipt</h2>
+<p id="emptyMsg">Your cart is empty.</p>
+
+<div class="bill-info">
+Date: <span id="billDate"></span><br>
+Time: <span id="billTime"></span>
+</div>
+
+<div class="bill-items" id="billItems"></div>
+
+<div class="bill-total">
+<span>Total</span>
+<span>₹<span id="billTotal"></span></span>
+</div>
+
+<div class="thank">
+Thank you for visiting Vish's Point! 🍰<br>
+We hope to serve you again.
+</div>
+
+</div>
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let container = document.getElementById("cartItems");
+let billItems = document.getElementById("billItems");
+
+let total = 0;
+
+cart.forEach(item => {
+
+let div = document.createElement("div");
+
+div.className="cart-item";
+
+div.innerHTML = `
+<h3>${item.name}</h3>
+<p>₹${item.price}</p>
+`;
+
+container.appendChild(div);
+
+
+/* BILL ROW */
+
+let billRow = document.createElement("div");
+
+billRow.className="bill-row";
+
+billRow.innerHTML = `
+<span>${item.name}</span>
+<span>₹${item.price}</span>
+`;
+
+billItems.appendChild(billRow);
+
+total += item.price;
+
+});
+
+document.getElementById("totalPrice").textContent = total;
+document.getElementById("billTotal").textContent = total;
+
+
+/* DATE AND TIME */
+
+let now = new Date();
+
+document.getElementById("billDate").textContent =
+now.toLocaleDateString();
+
+document.getElementById("billTime").textContent =
+now.toLocaleTimeString();
+
+
+function clearCart(){
+
+localStorage.removeItem("cart");
+
+location.reload();
+
+}
+
+</script>
+
+<div class="back-home">
+<a href="index.html" class="home-btn">⬅ Back to Home</a>
+</div>
+
+</body>
+</html>

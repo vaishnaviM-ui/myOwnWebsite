@@ -1,0 +1,403 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cake Offers | Vish's Point</title>
+
+<style>
+
+body{
+font-family:Poppins, sans-serif;
+margin:0;
+background:#111;
+color:white;
+text-align:center;
+}
+
+/* HEADER */
+
+header{
+background:#000;
+padding:20px;
+}
+
+header h1{
+margin:0;
+}
+
+
+
+/* GRID */
+
+.cake-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+padding:40px;
+}
+
+/* CARD */
+
+.cake-card{
+background:#1e1e1e;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
+transition:0.4s;
+animation:fadeIn 1s ease;
+}
+
+.cake-card:hover{
+transform:translateY(-10px) scale(1.03);
+}
+
+/* IMAGE */
+
+.cake-card img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+/* CONTENT */
+
+.cake-content{
+padding:15px;
+}
+
+.price{
+text-decoration:line-through;
+color:#aaa;
+}
+
+.offer-price{
+color:#ff9800;
+font-size:20px;
+font-weight:bold;
+}
+
+/* RATING */
+
+.rating{
+color:gold;
+margin:5px 0;
+}
+
+/* BUTTON */
+
+.add-cart{
+background:#ff9800;
+border:none;
+padding:10px 15px;
+color:white;
+border-radius:5px;
+cursor:pointer;
+margin-top:10px;
+transition:0.3s;
+}
+
+.add-cart:hover{
+background:#e68900;
+}
+
+/* ANIMATION */
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.back-home{
+text-align:center;
+margin:40px 0;
+}
+
+.home-btn{
+display:inline-block;
+padding:12px 25px;
+background:#ff6b6b;
+color:white;
+text-decoration:none;
+border-radius:6px;
+font-weight:600;
+transition:0.3s;
+}
+
+.home-btn:hover{
+background:#e63946;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>Special Cake Offers 🎂</h1>
+<p>Enjoy delicious cakes with special discounts</p>
+</header>
+
+<div style="text-align:right; padding:20px;">
+<a href="cart.html" style="
+background:#ff9800;
+padding:10px 20px;
+color:white;
+text-decoration:none;
+border-radius:6px;
+font-weight:bold;
+">
+
+🛒 View Cart
+</a>
+</div>
+
+<section class="cake-grid">
+
+<!-- Cake 1 -->
+<div class="cake-card">
+<img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587">
+<div class="cake-content">
+<h3>Chocolate Truffle Cake</h3>
+<div class="rating">⭐⭐⭐⭐⭐</div>
+<p class="price">₹500</p>
+<p class="offer-price">₹399</p>
+<button class="add-cart" onclick="addToCart('Chocolate Truffle Cake',399)">
+Add to Cart
+</button>
+</div>
+</div>
+
+<!-- Cake 2 -->
+<div class="cake-card">
+<img src="https://bakewithzoha.com/wp-content/uploads/2024/09/red-velvet-cake-featured-1.jpg">
+<div class="cake-content">
+<h3>Red Velvet Cake</h3>
+<div class="rating">⭐⭐⭐⭐⭐</div>
+<p class="price">₹550</p>
+<p class="offer-price">₹420</p>
+<button class="add-cart" onclick="addToCart('Red Velvet Cake',420)">
+Add to Cart
+</button>
+</div>
+</div>
+
+<!-- Cake 3 -->
+<div class="cake-card">
+<img src="https://amycakesbakes.com/wp-content/uploads/2021/07/Fresh-Strawberry-Cake-by-Amycakes-Bakes.jpg">
+<div class="cake-content">
+<h3>Strawberry Cake</h3>
+<div class="rating">⭐⭐⭐⭐</div>
+<p class="price">₹450</p>
+<p class="offer-price">₹350</p>
+<button class="add-cart" onclick="addToCart('StrawBerry Cake',350)">
+Add to Cart
+</button>
+</div>
+</div>
+
+<!-- Cake 4 -->
+<div class="cake-card">
+<img src="https://therecipecritic.com/wp-content/uploads/2021/09/blackforestcake-1.jpg">
+<div class="cake-content">
+<h3>Black Forest Cake</h3>
+<div class="rating">⭐⭐⭐⭐⭐</div>
+<p class="price">₹480</p>
+<p class="offer-price">₹370</p>
+<button class="add-cart" onclick="addToCart('Black Forest Cake',370)">
+Add to Cart
+</button>
+</div>
+</div>
+
+<!-- Cake 5 -->
+<div class="cake-card">
+<img src="https://cakedeliverykerala.com/wp-content/uploads/2024/12/butter.jpg">
+<div class="cake-content">
+<h3>Butterscotch Cake</h3>
+<div class="rating">⭐⭐⭐⭐</div>
+<p class="price">₹420</p>
+<p class="offer-price">₹330</p>
+<button class="add-cart" onclick="addToCart('Buttorscotch Cake',330)">
+Add to Cart
+</button>
+</div>
+</div>
+
+<!-- Cake 6 -->
+<div class="cake-card">
+<img src="https://cdn.shopify.com/s/files/1/0743/7382/4786/files/Hot_Choc-21.jpg?v=1730396656">
+<div class="cake-content">
+<h3>Vanilla Cream Cake</h3>
+<div class="rating">⭐⭐⭐⭐</div>
+<p class="price">₹400</p>
+<p class="offer-price">₹310</p>
+<button class="add-cart" onclick="addToCart('Vanilla Cream Cake',310)">
+Add to Cart
+</button>
+</div>
+</div>
+
+<!-- Cake 7 -->
+<div class="cake-card">
+<img src="https://mykitchentalk.com/wp-content/uploads/2024/12/Pineapple-Coconut-Cake-12.jpg">
+<div class="cake-content">
+<h3>Pineapple Cake</h3>
+<div class="rating">⭐⭐⭐⭐</div>
+<p class="price">₹420</p>
+<p class="offer-price">₹320</p>
+<button class="add-cart" onclick="addToCart(' Pineapple Cake ',320)">
+Add to Cart
+</button>
+</div>
+</div>
+
+<!-- Cake 8 -->
+<div class="cake-card">
+<img src="https://www.cakere.com//wp-content/uploads/2025/03/Blueberry_Cake11_a7wojm.jpg">
+<div class="cake-content">
+<h3>Blueberry Cake</h3>
+<div class="rating">⭐⭐⭐⭐⭐</div>
+<p class="price">₹520</p>
+<p class="offer-price">₹399</p>
+<button class="add-cart" onclick="addToCart(' Blueberry Cake',399)">
+Add to Cart
+</button>
+</div>
+</div>
+
+<!-- Cake 9 -->
+<div class="cake-card">
+<img src="https://www.floramoments.in/cdn/shop/files/cake15.png?v=1714141273&width=1445">
+<div class="cake-content">
+<h3>Mango Delight Cake</h3>
+<div class="rating">⭐⭐⭐⭐</div>
+<p class="price">₹470</p>
+<p class="offer-price">₹360</p>
+<button class="add-cart" onclick="addToCart(' Mango Delight Cake',360)">
+Add to Cart
+</button>
+</div>
+</div>
+
+<!-- Cake 10 -->
+<div class="cake-card">
+<img src="https://tse1.mm.bing.net/th/id/OIP.ebm2LWB6XqRo5hK03rXtUQAAAA?rs=1&pid=ImgDetMain&o=7&rm=3">
+<div class="cake-content">
+<h3>KitKat Chocolate Cake</h3>
+<div class="rating">⭐⭐⭐⭐⭐</div>
+<p class="price">₹600</p>
+<p class="offer-price">₹470</p>
+<button class="add-cart" onclick="addToCart('KITKAT CHOCOLATE Cake',470)">
+Add to Cart
+</button>
+</div>
+</div>
+
+<!-- Cake 11 -->
+<div class="cake-card">
+<img src="https://tse4.mm.bing.net/th/id/OIP.cm5FjXyv74hR-aw5Hw4_sgHaHa?rs=1&pid=ImgDetMain&o=7&rm=3">
+<div class="cake-content">
+<h3>Oreo Cream Cake</h3>
+<div class="rating">⭐⭐⭐⭐⭐</div>
+<p class="price">₹580</p>
+<p class="offer-price">₹450</p>
+<button class="add-cart" onclick="addToCart('OREO CREAM Cake',450)">
+Add to Cart
+</button>
+</div>
+</div>
+
+<!-- Cake 12 -->
+<div class="cake-card">
+<img src="https://tse4.mm.bing.net/th/id/OIP.5BCbTLwYPDxTmo8IrEZctwHaLH?w=720&h=1080&rs=1&pid=ImgDetMain&o=7&rm=3">
+<div class="cake-content">
+<h3>Caramel Cake</h3>
+<div class="rating">⭐⭐⭐⭐</div>
+<p class="price">₹500</p>
+<p class="offer-price">₹380</p>
+<button class="add-cart" onclick="addToCart('Caramel Cake',380)">
+Add to Cart
+</button>
+</div>
+</div>
+
+
+<!-- Cake 13 -->
+<div class="cake-card">
+<img src="https://cookingfromheart.com/wp-content/uploads/2023/01/Eggless-Rum-Fruit-Cake-Recipe.jpg">
+<div class="cake-content">
+<h3>Dry Friut Cake</h3>
+<div class="rating">⭐⭐⭐⭐</div>
+<p class="price">₹500</p>
+<p class="offer-price">₹380</p>
+<button class="add-cart" onclick="addToCart(' Dry Fruit Cake',380)">
+Add to Cart
+</button>
+</div>
+</div>
+
+<!-- Cake 14 -->
+<div class="cake-card">
+<img src="https://www.foodelicacy.com/wp-content/uploads/2020/05/vanilla-chiffon-cake-featured-3.jpg">
+<div class="cake-content">
+<h3>  Chiffon Cake</h3>
+<div class="rating">⭐⭐⭐⭐</div>
+<p class="price">₹500</p>
+<p class="offer-price">₹380</p>
+<button class="add-cart" onclick="addToCart(' Chiffon Cake',380)">
+Add to Cart
+</button>
+</div>
+</div>
+
+<!-- Cake 15 -->
+<div class="cake-card">
+<img src="https://www.thefreshmancook.com/wp-content/uploads/2024/06/Copy-of-Copy-of-Thefreshmancook-2024-06-05T014330.384.jpg">
+<div class="cake-content">
+<h3> Cheese Cake</h3>
+<div class="rating">⭐⭐⭐⭐</div>
+<p class="price">₹500</p>
+<p class="offer-price">₹380</p>
+<button class="add-cart" onclick="addToCart(' Cheese Cake',380)">
+Add to Cart
+</button>
+</div>
+</div>
+
+
+
+</section>
+
+<script>
+
+function addToCart(name, price){
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+cart.push({
+name: name,
+price: price
+});
+
+localStorage.setItem("cart", JSON.stringify(cart));
+
+alert(name + " added to cart 🛒");
+
+}
+
+</script>
+
+ <div class="back-home">
+<a href="index.html" class="home-btn">⬅ Back to Home</a>
+</div>
+
+</body>
+</html>

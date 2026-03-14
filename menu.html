@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Menu | Vish's Point</title>
+
+<link rel="stylesheet" href="index.html">
+<link rel="stylesheet" href="styles.css">
+
+
+
+ 
+<!-- BACK TO HOME BUTTON -->
+<div class="back-home">
+<a href="index.html" class="home-btn">⬅ Back to Home</a>
+</div>
+
+<div class="search-box">
+<input type="text" id="menuSearch" placeholder="Search menu..." onkeyup="searchMenu()">
+</div>
+
+
+<style>
+
+/* MENU PAGE */
+
+.menu-section{
+padding:60px 20px;
+text-align:center;
+} 
+
+.menu-title{
+font-size:40px;
+margin-bottom:40px;
+}
+
+/* Grid */
+
+.menu-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+/* Card */
+
+.menu-card{
+background:rgb(101, 90, 255);
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+transition:0.4s;
+}
+
+.menu-card:hover{
+transform:translateY(-10px);
+}
+
+/* Image */
+
+.menu-card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+
+/* Content */
+
+.menu-content{
+padding:20px;
+}
+
+.menu-content h3{
+margin:10px 0;
+}
+
+.price{
+font-size:18px;
+font-weight:bold;
+color:#131313;
+}
+
+.rating{
+color:gold;
+margin:5px 0;
+}
+
+/* DARK MODE */
+
+body.dark-mode .menu-card{
+background:#1e1e1e;
+color:white;
+}
+
+.cart-btn{
+margin-top:10px;
+padding:10px 15px;
+border:none;
+background:#ff6b6b;
+color:white;
+font-weight:bold;
+border-radius:8px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.cart-btn:hover{
+background:#ff3b3b;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+    <script>
+        
+function searchMenu(){
+
+let input = document.getElementById("menuSearch").value.toLowerCase();
+
+let cards = document.querySelectorAll(".menu-card");
+
+cards.forEach(function(card){
+
+let title = card.querySelector("h3").textContent.toLowerCase();
+
+if(title.includes(input)){
+card.style.display = "";
+}else{
+card.style.display = "none";
+}
+
+});
+
+}
+
+function addToCart(name,price){
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+cart.push({
+name:name,
+price:price
+});
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+alert(name + " added to cart!");
+
+} 
+
+    </script>
+
+<header class="header">
+
+<h1>Vish's Point</h1>
+<p>Our Delicious Menu😍</p>
+
+<nav>
+<a href="about.html">About</a>
+<a href="menu.html">Menu📋</a>
+<a href="gallery.html">Gallery🎦</a>
+<a href="contact.html">Contact📞💬</a>
+<a href="cart.html"> Cart🛒</a>
+</nav>
+
+<button id="darkModeToggle">🌙</button>
+
+</header>
+
+
+<section class="menu-section">
+
+<h2 class="menu-title">Our Menu</h2>
+
+<div class="menu-grid">
+
+<!-- Dish 1 -->
+
+<div class="menu-card">
+
+<img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587">
+
+<div class="menu-content">
+
+<h3>Chocolate Cake</h3>
+
+<p class="rating">⭐⭐⭐⭐⭐</p>
+
+<p class="price">₹350</p>
+
+<button class="cart-btn" onclick="addToCart('Chocolate Cake',350)">Add to Cart</button>
+
+
+</div>
+
+</div>
+
+
+<!-- Dish 2 -->
+
+<div class="menu-card">
+
+<img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092">
+
+<div class="menu-content">
+
+<h3>Grilled Chicken</h3>
+
+<p class="rating">⭐⭐⭐⭐</p>
+
+<p class="price">₹420</p>
+
+<button class="cart-btn" onclick="addToCart('Grilled Chicken',420)">Add to Cart</button>
+
+
+</div>
+
+</div>
+
+
+<!-- Dish 3 -->
+
+<div class="menu-card">
+
+<img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d">
+
+<div class="menu-content">
+
+<h3>Cheese Burger</h3>
+
+<p class="rating">⭐⭐⭐⭐⭐</p>
+
+<p class="price">₹220</p>
+
+<button class="cart-btn" onclick="addToCart('Cheese Burger',220)">Add to Cart</button>
+
+
+</div>
+
+</div>
+
+
+<!-- Dish 4 -->
+
+<div class="menu-card">
+
+<img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0">
+
+<div class="menu-content">
+
+<h3>Strawberry Pastry</h3>
+
+<p class="rating">⭐⭐⭐</p>
+
+<p class="price">₹120</p>
+
+<button class="cart-btn" onclick="addToCart('Strawberry Pastry',120)">Add to Cart</button>
+
+
+</div>
+
+</div>
+
+
+<!-- Dish 5 -->
+
+<div class="menu-card">
+
+<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
+
+<div class="menu-content">
+
+<h3>Cappuccino</h3>
+
+<p class="rating">⭐⭐⭐⭐⭐</p>
+
+<p class="price">₹100</p>
+
+<button class="cart-btn" onclick="addToCart('Cappuccino',100)">Add to Cart</button>
+
+
+</div>
+
+</div>
+
+
+<!-- Dish 6 -->
+
+<div class="menu-card">
+
+<img src="https://images.unsplash.com/photo-1513104890138-7c749659a591">
+
+<div class="menu-content">
+
+<h3>Margherita Pizza</h3>
+
+<p class="rating">⭐⭐⭐⭐</p>
+
+<p class="price">₹399</p>
+
+<button class="cart-btn" onclick="addToCart('Margherita Pizza',399)">Add to Cart</button>
+
+
+</div>
+
+</div>
+
+
+
+ <!-- Dish 7 -->
+<div class="menu-card">
+<img src="https://tse4.mm.bing.net/th/id/OIP.Vqk26LTkAenFUHzibKND0gHaE8?rs=1&pid=ImgDetMain&o=7&rm=3">
+<div class="menu-content">
+<h3>Chicken Biryani</h3>
+<p class="rating">⭐⭐⭐⭐</p>
+<p class="price">₹280</p>
+<button class="cart-btn" onclick="addToCart('Chicken Biryani',280)">Add to Cart</button>
+
+</div>
+</div>
+
+<!-- Dish 8 -->
+<div class="menu-card">
+<img src="https://tse2.mm.bing.net/th/id/OIP.T6oLxT_zDhO-95H7FvkHIAHaLH?pid=ImgDet&w=474&h=711&rs=1&o=7&rm=3">
+<div class="menu-content">
+<h3>French Fries</h3>
+<p class="rating">⭐⭐⭐</p>
+<p class="price">₹120</p>
+<button class="cart-btn" onclick="addToCart('French Fries',120)">Add to Cart</button>
+
+</div>
+</div>
+
+<!-- Dish 9 -->
+<div class="menu-card">
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+<div class="menu-content">
+<h3>Chicken Burger</h3>
+<p class="rating">⭐⭐⭐⭐⭐</p>
+<p class="price">₹250</p>
+<button class="cart-btn" onclick="addToCart('Chicken Burger',250)">Add to Cart</button>
+
+</div>
+</div>
+
+<!-- Dish 10 -->
+<div class="menu-card">
+<img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38">
+<div class="menu-content">
+<h3>Pepperoni Pizza</h3>
+<p class="rating">⭐⭐⭐⭐</p>
+<p class="price">₹450</p>
+<button class="cart-btn" onclick="addToCart('Pepperoni Pizza',450)">Add to Cart</button>
+
+</div>
+</div>
+
+<!-- Dish 11 -->
+<div class="menu-card">
+<img src="https://tse2.mm.bing.net/th/id/OIP.pLokUk8MuCR8eRxuKGUIkwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3">
+<div class="menu-content">
+<h3>Paneer Tikka</h3>
+<p class="rating">⭐⭐⭐⭐⭐</p>
+<p class="price">₹260</p>
+<button class="cart-btn" onclick="addToCart('Paneer Tikka',260)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 12 -->
+<div class="menu-card">
+<img src="https://tse2.mm.bing.net/th/id/OIP.wJTgF8qg4XiMGGkG5CDRfwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3">
+<div class="menu-content">
+<h3>Veg Fried Rice</h3>
+<p class="rating">⭐⭐⭐⭐</p>
+<p class="price">₹190</p>
+<button class="cart-btn" onclick="addToCart('Veg Fried Rice',260)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 13 -->
+<div class="menu-card">
+<img src="https://tse4.mm.bing.net/th/id/OIP.1PpixLKqLpdZ3M-2z6b61AHaLG?rs=1&pid=ImgDetMain&o=7&rm=3">
+<div class="menu-content">
+<h3>Chicken Noodles</h3>
+<p class="rating">⭐⭐⭐⭐</p>
+<p class="price">₹210</p>
+<button class="cart-btn" onclick="addToCart('Chicken Noodles',210)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 14 -->
+<div class="menu-card">
+<img src="https://img.freepik.com/premium-photo/iced-cold-beverage-cold-coffee_1199132-30804.jpg">
+<div class="menu-content">
+<h3>Cold Coffee</h3>
+<p class="rating">⭐⭐⭐⭐⭐</p>
+<p class="price">₹140</p>
+<button class="cart-btn" onclick="addToCart('Cold Coffee',140)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 15 -->
+<div class="menu-card">
+<img src="https://images.aws.nestle.recipes/resized/c5238f694e286b52d4ec3bc215d02efe_clubhouse_sandwich_944_531.jpg">
+<div class="menu-content">
+<h3> Sandwich</h3>
+<p class="rating">⭐⭐⭐⭐</p>
+<p class="price">₹180</p>
+<button class="cart-btn" onclick="addToCart('Sandwich',260)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 16 -->
+<div class="menu-card">
+<img src="https://media.istockphoto.com/id/1292634518/photo/veg-steam-momo-topped-with-peri-peri-masala-and-served-with-sauce-and-mayonnaise-over-a.jpg?s=612x612&w=0&k=20&c=KkAETzVa8xy2CgUz-lYos6lmWmum0LhuAeZSAe21RTw=">
+<div class="menu-content">
+<h3>Veg Momos</h3>
+<p class="rating">⭐⭐⭐⭐</p>
+<p class="price">₹150</p>
+<button class="cart-btn" onclick="addToCart('Veg Momos',150)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 17 -->
+<div class="menu-card">
+<img src="https://i.pinimg.com/736x/e8/35/ed/e835ed89023c2a6d2d1933321d59efc4.jpg">
+<div class="menu-content">
+<h3>Chicken Momos</h3>
+<p class="rating">⭐⭐⭐⭐⭐</p>
+<p class="price">₹170</p>
+<button class="cart-btn" onclick="addToCart('Chicken Momos',170)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 18 -->
+<div class="menu-card">
+<img src="https://www.wyseguide.com/wp-content/uploads/2024/03/Chicken-Caesar-Salad-031-750x750.jpg">
+<div class="menu-content">
+<h3>Caesar Salad</h3>
+<p class="rating">⭐⭐⭐⭐</p>
+<p class="price">₹200</p>
+<button class="cart-btn" onclick="addToCart('caesar salad',200)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 21 -->
+<div class="menu-card">
+<img src="https://tse4.mm.bing.net/th/id/OIP.62Wq4oDNhZK3TN6ZLbs2vwHaGt?rs=1&pid=ImgDetMain&o=7&rm=3">
+<div class="menu-content">
+<h3>Chicken Tikka</h3>
+<p class="rating">⭐⭐⭐⭐⭐</p>
+<p class="price">₹320</p>
+<button class="cart-btn" onclick="addToCart('Chicken Tikka',320)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 22 -->
+<div class="menu-card">
+<img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2021/07/paneer-butter-masala.jpg">
+<div class="menu-content">
+<h3>Paneer Butter Masala</h3>
+<p class="rating">⭐⭐⭐⭐⭐</p>
+<p class="price">₹220</p>
+<button class="cart-btn" onclick="addToCart('Paneer Butter Masala',220)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 23 -->
+<div class="menu-card">
+<img src="https://myfoodstory.com/wp-content/uploads/2021/10/Veg-Manchurian-FI-1.jpg">
+<div class="menu-content">
+<h3>Veg Manchurian</h3>
+<p class="rating">⭐⭐⭐</p>
+<p class="price">₹190</p>
+<button class="cart-btn" onclick="addToCart('Veg Manchurian',190)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 24 -->
+<div class="menu-card">
+<img src="https://www.cookwithmanali.com/wp-content/uploads/2014/11/Vegetarian-Hakka-Noodles-Indian-Style.jpg">
+<div class="menu-content">
+<h3>Hakka Noodles</h3>
+<p class="rating">⭐⭐⭐⭐</p>
+<p class="price">₹210</p>
+<button class="cart-btn" onclick="addToCart('Hakka Noodles',210)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 25 -->
+<div class="menu-card">
+<img src="https://img.freepik.com/premium-photo/spicy-chicken-shawarma-sensation_944420-7723.jpg">
+<div class="menu-content">
+<h3>Chicken Shawarma</h3>
+<p class="rating">⭐⭐⭐⭐⭐</p>
+<p class="price">₹190</p>
+<button class="cart-btn" onclick="addToCart('Chicken Shawarma',190)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 26 -->
+<div class="menu-card">
+<img src="https://createmindfully.com/wp-content/uploads/2018/12/spicy-veggie-wrap-close-up.jpg">
+<div class="menu-content">
+<h3>Veg Wrap</h3>
+<p class="rating">⭐⭐⭐⭐</p>
+<p class="price">₹140</p>
+<button class="cart-btn" onclick="addToCart('Veg Wrap',140)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 27 -->
+<div class="menu-card">
+<img src="https://thumbs.dreamstime.com/b/turkey-bacon-club-sandwich-lettuce-tomato-43517130.jpg">
+<div class="menu-content">
+<h3>Club Sandwich</h3>
+<p class="rating">⭐⭐⭐⭐</p>
+<p class="price">₹210</p>
+<button class="cart-btn" onclick="addToCart('Club Sandwich',210)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 28 -->
+<div class="menu-card">
+<img src="https://www.ariadnepure.com/wp-content/uploads/2015/07/greek-salad-1.jpg">
+<div class="menu-content">
+<h3>Greek Salad</h3>
+<p class="rating">⭐⭐⭐⭐</p>
+<p class="price">₹180</p>
+<button class="cart-btn" onclick="addToCart('Greek Salad',180)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 29 -->
+<div class="menu-card">
+<img src="https://tse2.mm.bing.net/th/id/OIP.lWi4v3Tr8ZPnatO0tSINWQHaLG?w=683&h=1024&rs=1&pid=ImgDetMain&o=7&rm=3">
+<div class="menu-content">
+<h3>Veg Pasta</h3>
+<p class="rating">⭐⭐⭐⭐</p>
+<p class="price">₹190</p>
+<button class="cart-btn" onclick="addToCart('Veg Pasta',190)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 30 -->
+<div class="menu-card">
+<img src="https://www.spendwithpennies.com/wp-content/uploads/2019/06/Grilled-BBQ-Chicken-SpendWithePennies-4.jpg">
+<div class="menu-content">
+<h3>BBQ Chicken</h3>
+<p class="rating">⭐⭐⭐⭐⭐</p>
+<p class="price">₹360</p>
+<button class="cart-btn" onclick="addToCart('BBQ Chicken',360)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 31 -->
+<div class="menu-card">
+<img src="https://tse4.mm.bing.net/th/id/OIP.U5lvVyCQY9RiwT-3zzMxxQHaJ1?w=928&h=1232&rs=1&pid=ImgDetMain&o=7&rm=3">
+<div class="menu-content">
+<h3>Garlic Bread</h3>
+<p class="rating">⭐⭐⭐⭐</p>
+<p class="price">₹120</p>
+<button class="cart-btn" onclick="addToCart('Garlic Bread',120)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 32 -->
+<div class="menu-card">
+<img src="https://tse2.mm.bing.net/th/id/OIP.4A2KeX-bqNCBe7-PrP8ZBQHaLH?rs=1&pid=ImgDetMain&o=7&rm=3">
+<div class="menu-content">
+<h3>Veg Soup</h3>
+<p class="rating">⭐⭐⭐⭐</p>
+<p class="price">₹110</p>
+<button class="cart-btn" onclick="addToCart('Veg Soup',110)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 33 -->
+<div class="menu-card">
+<img src="https://www.antonio-carluccio.com/wp-content/uploads/2020/05/Chinese-Dishes-1536x1053.jpg">
+<div class="menu-content">
+<h3>All CHINESE</h3>
+<p class="rating">⭐⭐⭐⭐⭐</p>
+<p class="price">₹1500</p>
+<button class="cart-btn" onclick="addToCart('all chinese',1500)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 34 -->
+<div class="menu-card">
+<img src="https://www.tashasartisanfoods.com/blog/wp-content/uploads/2019/11/Baked-Veg-Spring-Rolls-6.jpg">
+<div class="menu-content">
+<h3>Veg Spring Rolls</h3>
+<p class="rating">⭐⭐⭐⭐</p>
+<p class="price">₹160</p>
+<button class="cart-btn" onclick="addToCart('Veg Spring Rolls',160)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 35 -->
+<div class="menu-card">
+<img src="https://www.sandyathome.com/wp-content/uploads/2020/11/chicken-65-fried-rice.jpg">
+<div class="menu-content">
+<h3>Chicken Fried Rice</h3>
+<p class="rating">⭐⭐⭐⭐⭐</p>
+<p class="price">₹240</p>
+<button class="cart-btn" onclick="addToCart('Chicken Fried Rice',240)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 36 -->
+<div class="menu-card">
+<img src="https://thefirstyearblog.com/wp-content/uploads/2020/09/Baked-Chocolate-Donuts-19-1025x1536.jpg">
+<div class="menu-content">
+<h3>Chocolate Donut</h3>
+<p class="rating">⭐⭐⭐⭐</p>
+<p class="price">₹90</p>
+<button class="cart-btn" onclick="addToCart('Chocolate Donut',90)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 37 -->
+<div class="menu-card">
+<img src="https://sallysbakingaddiction.com/wp-content/uploads/2019/05/blueberry-muffin.jpg">
+<div class="menu-content">
+<h3>Blueberry Muffin</h3>
+<p class="rating">⭐⭐⭐⭐</p>
+<p class="price">₹110</p>
+<button class="cart-btn" onclick="addToCart('Blueberry Muffin',110)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 38 -->
+<div class="menu-card">
+<img src="https://www.gearpatrol.com/wp-content/uploads/sites/2/2013/03/latte-photo-jpg.webp">
+<div class="menu-content">
+<h3>Espresso</h3>
+<p class="rating">⭐⭐⭐⭐</p>
+<p class="price">₹100</p>
+<button class="cart-btn" onclick="addToCart('Espresso',100)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 39 -->
+<div class="menu-card">
+<img src="https://i.pinimg.com/736x/f9/30/41/f93041aaf1bd9a94932195d16d4a1240.jpg">
+<div class="menu-content">
+<h3>Mango Smoothie</h3>
+<p class="rating">⭐⭐⭐⭐⭐</p>
+<p class="price">₹150</p>
+<button class="cart-btn" onclick="addToCart('Mango Smoothie',150)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 40 -->
+<div class="menu-card">
+<img src="https://www.willcookforfriends.com/wp-content/uploads/2017/01/Decadent-Chocolate-Milkshake-Youd-Never-Know-Is-Healthy-hi-res-web-1B.jpg">
+<div class="menu-content">
+<h3>Chocolate Milkshake</h3>
+<p class="rating">⭐⭐⭐⭐⭐</p>
+<p class="price">₹170</p>
+<button class="cart-btn" onclick="addToCart('Chocolate Milkshake',170)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 19 -->
+<div class="menu-card">
+<img src="https://tse4.mm.bing.net/th/id/OIP.aUKJdPeRYXECuPVlZGtSoQHaLH?rs=1&pid=ImgDetMain&o=7&rm=3">
+<div class="menu-content">
+<h3>Ice Cream Sundae</h3>
+<p class="rating">⭐⭐⭐⭐</p>
+<p class="price">₹140</p>
+<button class="cart-btn" onclick="addToCart('Ice Cream Sundae',140)">Add to Cart</button>
+</div>
+</div>
+
+<!-- Dish 20 -->
+<div class="menu-card">
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgtgyvy8AeM80V1SIB7lLjNMAcLkX_MQ_Rx1rYhsQC5kUK4AA6HoIGybqCLSNxBhNDPHoqQfl1kHv-idYMzjK9CvzP5YMswwR160fxUISS1rVcdY48-OeXRcKRJ4Msyo02zTkOHUHd8iNCQn9tZbTsgJbnt5qNIjyxqKB3cf4OIdInvza7Yaxi2gqmWdA/w540-h640-rw/istockphoto-537228258-612x612%20-%20Copy%20(4).jpg">
+<div class="menu-content">
+<h3>Fresh Lime Soda</h3>
+<p class="rating">⭐⭐⭐⭐</p>
+<p class="price">₹90</p>
+<button class="cart-btn" onclick="addToCart('Fresh Lime Soda',90)">Add to Cart</button>
+</div>
+</div>
+
+</div>
+</section>
+
+
+<footer class="footer">
+
+<p>© 2026 Vish's Point</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
